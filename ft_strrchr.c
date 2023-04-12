@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annamarianunes <annamarianunes@student.    +#+  +:+       +#+        */
+/*   By: aangelic <aangelic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 22:28:17 by aangelic          #+#    #+#             */
-/*   Updated: 2023/03/09 14:31:17 by annamarianu      ###   ########.fr       */
+/*   Updated: 2023/04/12 11:44:02 by aangelic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strrchr(const char *s, int c)
 {
 	char	*last;
 	char	find;
-	size_t i;
+	size_t	i;
 
 	last = (char *)s;
 	find = (char)c;
@@ -31,6 +31,7 @@ char	*ft_strrchr(const char *s, int c)
 		return (last);
 	return (0);
 }
+
 //  int main(void)
 //  {
 //  	char* str = "pen pineapple apple pen!";

@@ -1,15 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aangelic <aangelic@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/12 11:30:39 by aangelic          #+#    #+#             */
+/*   Updated: 2023/04/12 18:59:13 by aangelic         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-void ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-    unsigned int i;
+	int	i;
 
-    if(!s)
-        return;
-    i = 0;     
-    if(s[i])
-    {
-        (*f)(i,s + i);
-        i++;
-    }
+	i = 0;
+	while (*s)
+		f(i++, s++);
 }

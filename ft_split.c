@@ -1,22 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aangelic <aangelic@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/12 11:29:47 by aangelic          #+#    #+#             */
+/*   Updated: 2023/04/12 11:49:23 by aangelic         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static int get_length(char c , char *s)
+static int	get_length(char c, char *s)
 {
-    int len;
+	int	len;
 
-    len = 0;
-    while(*s)
-    {
-        if(*s == c)
-            s++;
-        else
-        {
-            while(*s != c && *s)
-                s++;
-            len++;    
-        }    
-    }
-    return(len);
+	len = 0;
+	while (*s)
+	{
+		if (*s == c)
+			s++;
+		else
+		{
+			while (*s != c && *s)
+				s++;
+			len++;
+		}
+	}
+	return (len);
 }
 
 static char	*new_word(const char *s, int start, int end, int len)
@@ -29,11 +41,11 @@ static char	*new_word(const char *s, int start, int end, int len)
 	if (!new)
 		new = (char *)malloc(sizeof(char) * len + 1);
 	while (start < end)
-    {
+	{
 		new[i] = s[start];
-        i++;
-        start++;
-    }
+		i++;
+		start++;
+	}
 	new[i] = '\0';
 	return (new);
 }
