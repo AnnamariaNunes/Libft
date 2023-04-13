@@ -6,7 +6,7 @@
 /*   By: aangelic <aangelic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:21:37 by aangelic          #+#    #+#             */
-/*   Updated: 2023/04/12 11:48:02 by aangelic         ###   ########.fr       */
+/*   Updated: 2023/04/13 15:43:17 by aangelic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,9 @@ static int	ft_count_digits(long n)
 
 	len = 0;
 	if (n == 0)
+		return (1);
+	if (n < 0)
 		len++;
-	if (n <= 0)
-	{
-		n *= -1;
-		len++;
-	}
 	while (n)
 	{
 		n /= 10;
@@ -36,25 +33,38 @@ char	*ft_itoa(int n)
 {
 	char	*str;
 	size_t	len;
+	size_t	i;
 
 	len = ft_count_digits(n);
 	str = (char *)malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
 	str[len] = '\0';
-	if (n == 0)
-		str[0] = 48;
-	str[len--] = '\0';
 	if (n < 0)
 	{
 		str[0] = '-';
-		n = -n;
+		i = 1;
 	}
-	while (n > 0)
+	else
+		i = 0;
+	while (len-- > i)
 	{
-		str[len] = n % 10 + '0';
-		len--;
-		n = n / 10;
+		if (n < 0)
+		{
+			str[len] = '0' + n % 10 * (-1);
+			n = n / 10;
+		}
+		else
+		{
+			str[len] = '0' + n % 10;
+			n = n / 10;
+		}
+		return (str);
 	}
-	return (str);
 }
+// int	main(void)
+// {
+// 	printf("%s\n", ft_itoa(0));
+// 	printf("%s\n", ft_itoa(987654321));
+// 	printf("%s\n", ft_itoa(-123456789));
+// }

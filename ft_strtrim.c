@@ -6,7 +6,7 @@
 /*   By: aangelic <aangelic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:32:41 by aangelic          #+#    #+#             */
-/*   Updated: 2023/04/13 14:45:13 by aangelic         ###   ########.fr       */
+/*   Updated: 2023/04/13 15:39:16 by aangelic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,13 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (i > start && ft_strchr(set, s1[i - 1]))
 		i--;
 	end = i;
+	str = ft_substr(s1, start, end - start);
 	return (str);
 }
 
-int main()
-{
-	printf("%s\n",ft_strtrim("abqbc","abc"));
-	printf("%s\n",ft_strtrim("xavocadoyz","xyz"));
+// int main()
+// {
+// 	printf("%s\n",ft_strtrim("abqbc","abc"));
+// 	printf("%s\n",ft_strtrim("xavocadoyz","xyz"));
 
-}
+// }
