@@ -6,7 +6,7 @@
 /*   By: aangelic <aangelic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:32:50 by aangelic          #+#    #+#             */
-/*   Updated: 2023/04/14 14:08:13 by aangelic         ###   ########.fr       */
+/*   Updated: 2023/04/14 16:24:09 by aangelic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t str_len;
+	size_t	str_len;
 	char	*sub;
 
 	str_len = ft_strlen(s);

@@ -6,7 +6,7 @@
 /*   By: aangelic <aangelic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:21:37 by aangelic          #+#    #+#             */
-/*   Updated: 2023/04/14 13:26:49 by aangelic         ###   ########.fr       */
+/*   Updated: 2023/04/14 16:24:12 by aangelic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,60 @@
 
 static int	ft_count_digits(long n)
 {
-	size_t	len;
+	int	len;
 
 	len = 0;
-	if (n <= 0)
-		len++;
-	while (n)
+	if (n == 0)
+		return (1);
+	if (n < 0)
 	{
+		n *= -1;
 		len++;
-		n = n / 10;
+	}
+	while (n > 0)
+	{
+		n /= 10;
+		len++;
 	}
 	return (len);
 }
 
-char	*ft_itoa(int n)
+static char	*allocator(int size)
 {
 	char	*str;
-	int		len;
-	long	nb;
 
-	len = ft_count_digits(n);
-	str = ((char *)malloc(sizeof(char) * len + 1));
+	str = (char *)malloc (size + 1);
 	if (!str)
-		return (NULL);
-	if (n < 0)
+		return (0);
+	str[size] = '\0';
+	return (str);
+}
+
+char	*ft_itoa(int n)
+{
+	char		*str;
+	int			i;
+	long long	ln;
+
+	ln = n;
+	i = ft_count_digits(ln);
+	str = allocator(i--);
+	if (!str)
+		return (0);
+	if (ln == 0)
+	{
+		str[0] = 48;
+		return (str);
+	}
+	if (ln < 0)
 	{
 		str[0] = '-';
-		nb = -nb;
+		ln *= -1;
 	}
-	if (nb == 0)
-		str[0] = '\0';
-	str[len--] = '\0';
-	while (nb)
+	while (ln > 0 && str[i] != '-')
 	{
-		str[len] = nb % 10 + '0';
-		len--;
-		nb = nb / 10;
+		str [i--] = (ln % 10) + 48;
+		ln /= 10;
 	}
 	return (str);
 }
