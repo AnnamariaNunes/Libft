@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aangelic <aangelic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/12 11:29:59 by aangelic          #+#    #+#             */
-/*   Updated: 2023/04/15 13:18:53 by aangelic         ###   ########.fr       */
+/*   Created: 2023/04/14 17:41:25 by aangelic          #+#    #+#             */
+/*   Updated: 2023/04/15 12:59:00 by aangelic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+t_list	*ft_lstlast(t_list *lst)
 {
-	while (*s && (const unsigned char)*s != (const unsigned char)c)
-		s++;
-	if ((const unsigned char)*s == (const unsigned char)c)
-		return ((char *)s);
-	return (NULL);
+	if (lst == NULL)
+		return (NULL);
+	while (lst -> next != NULL)
+		lst = lst->next;
+	return (lst);
 }

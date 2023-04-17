@@ -6,7 +6,7 @@
 /*   By: aangelic <aangelic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 11:26:53 by aangelic          #+#    #+#             */
-/*   Updated: 2023/04/12 19:17:08 by aangelic         ###   ########.fr       */
+/*   Updated: 2023/04/14 17:55:56 by aangelic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	unsigned char	*str;
 	size_t			i;
 
-	str = (char *)s;
+	str = (unsigned char *)s;
 	i = 0;
 	while (n > i)
 	{
